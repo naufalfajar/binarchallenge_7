@@ -1,5 +1,6 @@
 package id.nphew.binar.challenge5.service
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,6 +20,7 @@ object ApiClient {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(logging)
+        .addNetworkInterceptor(StethoInterceptor())
         .build()
 
     val instance: ApiService by lazy {

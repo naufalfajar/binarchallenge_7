@@ -53,7 +53,7 @@ class DataStoreManager(private val context: Context) {
 
 
     companion object {
-        private const val DATA_STORE_NAME = "loged_preference"
+        private const val DATA_STORE_NAME = "counter_preference"
         private val KEY_ID = intPreferencesKey("key_id")
         private val KEY_USERNAME = stringPreferencesKey("key_username")
         private val KEY_EMAIL = stringPreferencesKey("key_email")
