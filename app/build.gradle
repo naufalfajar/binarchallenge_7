@@ -7,6 +7,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\naufa\\AndroidStudioProjects\\Challenge6\\keystore\\keystore.jks')
+            storePassword 'naufal'
+            keyAlias 'key0'
+            keyPassword 'naufal'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -17,6 +25,29 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        staging {
+            versionCode 2
+            versionName "2.0"
+            manifestPlaceholders = [
+                    appIcon         : "@mipmap/ic_launcher",
+                    appIconRound    : "@mipmap/ic_launcher_round"
+            ]
+            resValue("string", "app_name", appNameStaging)
+        }
+
+        production {
+            versionCode 1
+            versionName "1.0"
+            manifestPlaceholders = [
+                    appIcon         : "@mipmap/ic_launcher_production",
+                    appIconRound    : "@mipmap/ic_launcher_production_round"
+            ]
+            resValue("string", "app_name", appNameProduction)
+        }
     }
 
     buildTypes {
@@ -40,6 +71,7 @@ android {
 
 dependencies {
     def nav_version = "2.4.2"
+    def koin_version = "2.2.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -86,5 +118,13 @@ dependencies {
     // Steho
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    // Live data
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+
+    // Koin
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-viewmodel:$koin_version"
 
 }

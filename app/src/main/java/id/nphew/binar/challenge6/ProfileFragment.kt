@@ -14,16 +14,14 @@ import id.nphew.binar.challenge6.repo.AccountRepo
 import id.nphew.binar.challenge6.repo.viewModelsFactory
 import id.nphew.binar.challenge6.viewmodel.LoginViewModel
 import id.nphew.binar.challenge6.viewmodel.UserViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val accRepo: AccountRepo by lazy { AccountRepo(requireContext()) }
-    private val viewModel: UserViewModel by viewModelsFactory { UserViewModel(accRepo) }
-
-    private val pref: DataStoreManager by lazy { DataStoreManager(requireContext()) }
-    private val loginModel: LoginViewModel by viewModelsFactory { LoginViewModel(pref) }
+    private val viewModel: UserViewModel by sharedViewModel()
+    private val loginModel: LoginViewModel by sharedViewModel()
 
     private var userId: Int = 0
     private var email: String = "default"

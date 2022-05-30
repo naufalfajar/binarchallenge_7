@@ -15,15 +15,16 @@ import id.nphew.binar.challenge6.model.Status
 import id.nphew.binar.challenge6.repo.MovieRepo
 import id.nphew.binar.challenge6.repo.viewModelsFactory
 import id.nphew.binar.challenge6.viewmodel.MovieViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieDetailFragment : Fragment() {
     private var _binding: FragmentMovieDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val apiService: ApiService by lazy { ApiClient.instance }
+//    private val apiService: ApiService by lazy { ApiClient.instance }
 
-    private val movieRepo: MovieRepo by lazy { MovieRepo(apiService) }
-    private val movieViewModel: MovieViewModel by viewModelsFactory { MovieViewModel(movieRepo) }
+//    private val movieRepo: MovieRepo by lazy { MovieRepo(apiService) }
+    private val movieViewModel: MovieViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
