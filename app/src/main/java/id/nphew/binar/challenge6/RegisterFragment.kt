@@ -12,13 +12,13 @@ import id.nphew.binar.challenge6.databinding.FragmentRegisterBinding
 import id.nphew.binar.challenge6.repo.AccountRepo
 import id.nphew.binar.challenge6.repo.viewModelsFactory
 import id.nphew.binar.challenge6.viewmodel.UserViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    private val accRepo: AccountRepo by lazy { AccountRepo(requireContext()) }
-    private val viewModel: UserViewModel by viewModelsFactory { UserViewModel(accRepo) }
+    private val viewModel: UserViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

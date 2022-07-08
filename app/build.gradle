@@ -67,11 +67,14 @@ android {
         viewBinding true
         dataBinding true
     }
+
 }
 
 dependencies {
     def nav_version = "2.4.2"
     def koin_version = "2.2.2"
+
+    implementation("io.mockk:mockk:1.11.0")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

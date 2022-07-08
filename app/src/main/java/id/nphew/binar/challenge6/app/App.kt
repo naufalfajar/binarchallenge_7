@@ -23,14 +23,14 @@ class App: Application(){
         initKoin()
     }
 
-    val appModule = module {
+    private val appModule = module {
         single { DataStoreManager(androidContext()) }
         single { ApiClient.instance }
         single { MovieRepo(get()) }
         single { AccountRepo(androidContext()) }
     }
 
-    val viewModelModule = module {
+    private val viewModelModule = module {
         single { UserViewModel(get())}
         single { LoginViewModel(get())}
         single { MovieViewModel(get())}
